@@ -1,0 +1,6 @@
+package:
+    type:       yii2-extension
+    name:       yii2-daterangepicker
+    title:      Date Range Picker widget for Yii2
+    headline:   Yii2 Date Range Picker
+    keywords:   yii2, daterangepicker, widget

@@ -1,0 +1,58 @@
+{
+    "name": "hiqdev/yii2-daterangepicker",
+    "type": "yii2-extension",
+    "description": "Date Range Picker widget for Yii2",
+    "keywords": [
+        "yii2",
+        "daterangepicker",
+        "widget"
+    ],
+    "homepage": "https://github.com/hiqdev/yii2-daterangepicker",
+    "license": "BSD-3-Clause",
+    "support": {
+        "email": "support@hiqdev.com",
+        "source": "https://github.com/hiqdev/yii2-daterangepicker",
+        "issues": "https://github.com/hiqdev/yii2-daterangepicker/issues",
+        "wiki": "https://github.com/hiqdev/yii2-daterangepicker/wiki",
+        "forum": "http://forum.hiqdev.com/"
+    },
+    "authors": [
+        {
+            "name": "Andrii Vasyliev",
+            "role": "Project lead",
+            "email": "sol@hiqdev.com",
+            "homepage": "http://hipanel.com/"
+        },
+        {
+            "name": "Dmitry Naumenko",
+            "role": "Lead backend developer",
+            "email": "d.naumenko.a@gmail.com",
+            "homepage": "http://silverfire.me/"
+        },
+        {
+            "name": "Andrey Klochok",
+            "role": "Lead frontend developer",
+            "email": "andreyklochok@gmail.com",
+            "homepage": "http://hiqdev.com/"
+        },
+        {
+            "name": "Yuriy Myronchuk",
+            "role": "QA Lead",
+            "email": "bladeroot@gmail.com",
+            "homepage": "http://hiqdev.com/"
+        }
+    ],
+    "require": {
+        "bower-asset/bootstrap-daterangepicker": "^3.0.1"
+    },
+    "require-dev": {
+        "hiqdev/hidev-php": "<2.0 || dev-master",
+        "hiqdev/hidev-hiqdev": "<2.0 || dev-master"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}
