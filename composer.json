@@ -51,7 +51,7 @@
     },
     "autoload": {
         "psr-4": {
-            "hiqdev\\daterangepicker\\": "src"
+            "hiqdev\\yii2\\daterangepicker\\": "src"
         }
     },
     "repositories": [
