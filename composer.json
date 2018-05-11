@@ -54,6 +54,11 @@
             "hiqdev\\yii2\\daterangepicker\\": "src"
         }
     },
+    "extra": {
+        "config-plugin": {
+            "common": "src/config/common.php"
+        }
+    },
     "repositories": [
         {
             "type": "composer",
