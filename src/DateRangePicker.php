@@ -206,12 +206,12 @@ class DateRangePicker extends InputWidget
     {
         if ($this->defaultRanges && ArrayHelper::getValue($this->clientOptions, 'ranges') === null) {
             $this->clientOptions['ranges'] = [
-                Yii::t('daterangepicker', 'Today', [], $this->language) => new JsExpression('[new Date(), new Date()]'),
-                Yii::t('daterangepicker', 'Yesterday', [], $this->language) => new JsExpression('[moment().subtract(1, "days"), moment().subtract(1, "days")]'),
-                Yii::t('daterangepicker', 'Last 7 Days', [], $this->language) => new JsExpression('[moment().subtract(6, "days"), new Date()]'),
-                Yii::t('daterangepicker', 'Last 30 Days', [], $this->language) => new JsExpression('[moment().subtract(29, "days"), new Date()]'),
-                Yii::t('daterangepicker', 'This Month', [], $this->language) => new JsExpression('[moment().startOf("month"), moment().endOf("month")]'),
-                Yii::t('daterangepicker', 'Last Month', [], $this->language) => new JsExpression('[moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")]'),
+                Yii::t('hipanel.daterangepicker', 'Today', [], $this->language) => new JsExpression('[new Date(), new Date()]'),
+                Yii::t('hipanel.daterangepicker', 'Yesterday', [], $this->language) => new JsExpression('[moment().subtract(1, "days"), moment().subtract(1, "days")]'),
+                Yii::t('hipanel.daterangepicker', 'Last 7 Days', [], $this->language) => new JsExpression('[moment().subtract(6, "days"), new Date()]'),
+                Yii::t('hipanel.daterangepicker', 'Last 30 Days', [], $this->language) => new JsExpression('[moment().subtract(29, "days"), new Date()]'),
+                Yii::t('hipanel.daterangepicker', 'This Month', [], $this->language) => new JsExpression('[moment().startOf("month"), moment().endOf("month")]'),
+                Yii::t('hipanel.daterangepicker', 'Last Month', [], $this->language) => new JsExpression('[moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")]'),
             ];
         }
     }
@@ -229,12 +229,12 @@ class DateRangePicker extends InputWidget
 
         $this->clientOptions['locale'] = [
             'format' => $format,
-            'applyLabel' => Yii::t('daterangepicker', 'Apply', [], $this->language),
-            'cancelLabel' => Yii::t('daterangepicker', 'Cancel', [], $this->language),
-            'fromLabel' => Yii::t('daterangepicker', 'From', [], $this->language),
-            'toLabel' => Yii::t('daterangepicker', 'To', [], $this->language),
-            'weekLabel' => Yii::t('daterangepicker', 'W', [], $this->language),
-            'customRangeLabel' => Yii::t('daterangepicker', 'Custom Range', [], $this->language),
+            'applyLabel' => Yii::t('hipanel.daterangepicker', 'Apply', [], $this->language),
+            'cancelLabel' => Yii::t('hipanel.daterangepicker', 'Cancel', [], $this->language),
+            'fromLabel' => Yii::t('hipanel.daterangepicker', 'From', [], $this->language),
+            'toLabel' => Yii::t('hipanel.daterangepicker', 'To', [], $this->language),
+            'weekLabel' => Yii::t('hipanel.daterangepicker', 'W', [], $this->language),
+            'customRangeLabel' => Yii::t('hipanel.daterangepicker', 'Custom Range', [], $this->language),
         ];
     }
 
