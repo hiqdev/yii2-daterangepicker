@@ -13,7 +13,7 @@ return [
         'i18n' => [
             'class' => \hipanel\components\I18N::class,
             'translations' => [
-                'daterangepicker' => [
+                'hiqdev.daterangepicker' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hiqdev/yii2/daterangepicker/messages',
                     'sourceLanguage' => 'en-US',
