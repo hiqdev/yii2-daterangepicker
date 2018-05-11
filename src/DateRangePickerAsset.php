@@ -1,6 +1,6 @@
 <?php
 
-namespace hipanel\widgets;
+namespace hiqdev\yii2\daterangepicker;
 
 use yii\web\AssetBundle;
 
