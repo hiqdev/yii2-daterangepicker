@@ -4,3 +4,7 @@ package:
     title:      Date Range Picker widget for Yii2
     headline:   Yii2 Date Range Picker
     keywords:   yii2, daterangepicker, widget
+    description:
+        This widget renders a Bootstrap DateRangePicker input control using [Bootstrap Date Range Picker] widget.
+
+        [Bootstrap Date Range Picker]: http://www.daterangepicker.com/

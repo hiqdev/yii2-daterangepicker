@@ -9,6 +9,9 @@
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/yii2-daterangepicker.svg)](https://scrutinizer-ci.com/g/hiqdev/yii2-daterangepicker/)
 [![Dependency Status](https://www.versioneye.com/php/hiqdev:yii2-daterangepicker/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:yii2-daterangepicker/dev-master)
 
+This widget renders a Bootstrap DateRangePicker input control using [Bootstrap Date Range Picker] widget.
+[Bootstrap Date Range Picker]: http://www.daterangepicker.com/
+
 ## Installation
 
 The preferred way to install this yii2-extension is through [composer](http://getcomposer.org/download/).
@@ -29,7 +32,8 @@ to the require section of your composer.json.
 
 ## Usage
 
-Example:
+There are two ways of using this widget: with an `ActiveForm` instance or
+as a widget setting up its `model` and `attribute`.
 
 ## License
 
