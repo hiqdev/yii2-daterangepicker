@@ -37,3 +37,9 @@ This project is released under the terms of the BSD-3-Clause [license](LICENSE).
 Read more [here](http://choosealicense.com/licenses/bsd-3-clause).
 
 Copyright © 2018, HiQDev (http://hiqdev.com/)
+
+## Acknowledgments
+
+This package is based on [omnilight/yii2-bootstrap-daterangepicker].
+
+[omnilight/yii2-bootstrap-daterangepicker]: https://github.com/omnilight/yii2-bootstrap-daterangepicker
