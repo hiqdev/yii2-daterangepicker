@@ -9,7 +9,8 @@
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/yii2-daterangepicker.svg)](https://scrutinizer-ci.com/g/hiqdev/yii2-daterangepicker/)
 [![Dependency Status](https://www.versioneye.com/php/hiqdev:yii2-daterangepicker/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:yii2-daterangepicker/dev-master)
 
-This widget renders a Bootstrap DateRangePicker input control using [Bootstrap Date Range Picker] widget.
+This widget renders a DateRangePicker input control using [Bootstrap Date Range Picker] widget.
+
 [Bootstrap Date Range Picker]: http://www.daterangepicker.com/
 
 ## Installation
