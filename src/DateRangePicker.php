@@ -1,8 +1,15 @@
 <?php
+/**
+ * Date Range Picker widget for Yii2
+ *
+ * @link      https://github.com/hiqdev/yii2-daterangepicker
+ * @package   yii2-daterangepicker
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2018, HiQDev (http://hiqdev.com/)
+ */
 
 namespace hiqdev\yii2\daterangepicker;
 
-use hiqdev\yii2\daterangepicker\DateRangePickerAsset;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
@@ -13,7 +20,7 @@ use yii\web\JsExpression;
 use yii\widgets\InputWidget;
 
 /**
- * Class DateRangePicker is a wrapper for a [DateRagePicker](http://www.daterangepicker.com/) JS plugin
+ * Class DateRangePicker is a wrapper for a [DateRagePicker](http://www.daterangepicker.com/) JS plugin.
  *
  * @author Pavel Agalecky <pavel.agalecky@gmail.com>
  * @author Dmitry Naumenko <d.naumenko.a@gmail.com>
@@ -60,7 +67,7 @@ class DateRangePicker extends InputWidget
      */
     public $language;
     /**
-     * @var array the options for the underlying js widget.
+     * @var array the options for the underlying js widget
      */
     public $clientOptions = [];
     /**
@@ -68,14 +75,14 @@ class DateRangePicker extends InputWidget
      */
     public $clientEvents = [];
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * The following options are specially handled:
      *  - `tag`: the tag name. Set to `false` in order to prevent input render. When the property is not set, widget
      * will render the `<input>` tag.
      */
     public $options = [];
     /**
-     * @var string the model attribute that this widget is associated with.
+     * @var string the model attribute that this widget is associated with
      */
     public $attribute2 = null;
 
@@ -90,7 +97,6 @@ class DateRangePicker extends InputWidget
         }
     }
 
-
     public function run()
     {
         echo $this->renderInput() . "\n";
@@ -102,7 +108,7 @@ class DateRangePicker extends InputWidget
     }
 
     /**
-     * Registers the assets
+     * Registers the assets.
      * @void
      * @throws InvalidConfigException
      */
@@ -125,12 +131,13 @@ class DateRangePicker extends InputWidget
 
             $tag = ArrayHelper::remove($options, 'tag');
             $value = $this->hasModel() ? Html::getAttributeValue($this->model, $this->attribute) : $this->value;
+
             return Html::tag($tag, $value, $options);
         } else {
             if ($this->hasModel() && $this->attribute2) {
-                $result = Html::textInput('date-picker', '', $options)."\n";
+                $result = Html::textInput('date-picker', '', $options) . "\n";
                 $options['type'] = 'hidden';
-                $result .= Html::activeTextInput($this->model, $this->attribute, $options)."\n";
+                $result .= Html::activeTextInput($this->model, $this->attribute, $options) . "\n";
                 $result .= Html::activeTextInput($this->model, $this->attribute2, $options);
 
                 return $result;
@@ -222,7 +229,7 @@ class DateRangePicker extends InputWidget
             $format = $this->convertDateFormat(substr($this->dateFormat, 4));
         } elseif (strncmp($this->dateFormat, 'moment:', 7) === 0) {
             $format = Json::encode(substr($this->dateFormat, 7));
-            $format = new JsExpression("moment.localeData().longDateFormat(" . $format . ")");
+            $format = new JsExpression('moment.localeData().longDateFormat(' . $format . ')');
         } else {
             $format = $this->convertDateFormat(FormatConverter::convertDateIcuToPhp($this->dateFormat, 'datetime', $this->language));
         }
@@ -239,7 +246,7 @@ class DateRangePicker extends InputWidget
     }
 
     /**
-     * Registers a specific jQuery UI widget options
+     * Registers a specific jQuery UI widget options.
      * @throws InvalidConfigException
      */
     protected function registerClientScript()
@@ -260,7 +267,7 @@ class DateRangePicker extends InputWidget
         if ($this->attribute2) {
             $from = $this->model->attributes[$this->attribute];
             $till = $this->model->attributes[$this->attribute2];
-            $js = "$('#$id').val('" . ($from && $till ? $from . $this->separator . $till : "") . "');";
+            $js = "$('#$id').val('" . ($from && $till ? $from . $this->separator . $till : '') . "');";
             $this->getView()->registerJs($js);
 
             if (!array_key_exists('apply.daterangepicker', $this->clientEvents)) {
