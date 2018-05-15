@@ -36,6 +36,18 @@ to the require section of your composer.json.
 There are two ways of using this widget: with an `ActiveForm` instance or
 as a widget setting up its `model` and `attribute`.
 
+### With an ActiveForm
+
+```php
+///
+```
+
+### As a widget
+
+```php
+///
+```
+
 ## License
 
 This project is released under the terms of the BSD-3-Clause [license](LICENSE).
