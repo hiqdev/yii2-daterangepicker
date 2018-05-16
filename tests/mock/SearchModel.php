@@ -7,8 +7,5 @@ use yii\base\Model;
 class SearchModel extends Model
 {
     public $create_time_ge;
-
     public $create_time_lt;
-
-
 }

@@ -11,7 +11,7 @@ class DateRangePickerTest extends \PHPUnit\Framework\TestCase
     public function testRenderWithModel()
     {
         $model = new SearchModel();
-        $expexted = '<input type="text" id="searchmodel-create_time_ge" class="form-control" name="date-picker" value="">
+        $expected = '<input type="text" id="searchmodel-create_time_ge" class="form-control" name="date-picker" value="">
 <input type="hidden" id="searchmodel-create_time_ge" class="form-control" name="SearchModel[create_time_ge]">
 <input type="hidden" id="searchmodel-create_time_ge" class="form-control" name="SearchModel[create_time_lt]">
 ';
@@ -24,6 +24,6 @@ class DateRangePickerTest extends \PHPUnit\Framework\TestCase
             ],
             'dateFormat' => 'yyyy-MM-dd',
         ]);
-        $this->assertEquals($expexted, $output);
+        $this->assertEquals($expected, $output);
     }
 }

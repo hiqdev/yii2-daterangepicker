@@ -60,7 +60,7 @@
     "extra": {
         "config-plugin": {
             "common": "src/config/common.php",
-            "tests": "$common"
+            "tests": "src/config/tests.php"
         }
     },
     "repositories": [

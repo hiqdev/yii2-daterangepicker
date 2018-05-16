@@ -1,24 +1,21 @@
 <?php
 
 return [
-    'id' => 'basic-tests',
-    'basePath' => dirname(__DIR__),
+    'id' => 'testapp',
+    'basePath' => dirname(__DIR__, 2),
+    'vendorPath' => dirname(__DIR__, 2) . "/vendor",
     'aliases' => [
-        '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@bower' => '@vendor/bower-asset'
     ],
-    'language' => 'en-US',
     'components' => [
-        'assetManager' => false,
-//        'urlManager' => [
-//            'showScriptName' => true,
-//        ],
-//        'user' => [
-//            'identityClass' => 'app\models\User',
-//        ],
         'request' => [
-            'cookieValidationKey' => 'test',
-            'enableCsrfValidation' => false,
+            'cookieValidationKey' => 'wefJDF8sfdsfSDefwqdxj9oq',
+            'scriptFile' => dirname(__DIR__, 2) .'/tests/index.php',
+            'scriptUrl' => '/index.php',
+        ],
+        'assetManager' => [
+            'basePath' => '@hiqdev/yii2-daterangepicker/tests/_output',
+            'baseUrl' => '/',
         ],
     ],
 ];
