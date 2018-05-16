@@ -8,8 +8,32 @@
  * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
  */
 
-error_reporting(E_ALL);
+error_reporting(E_ALL & ~E_NOTICE);
 
-$bootstrap = __DIR__ . '/../src/_bootstrap.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 
-require_once file_exists($bootstrap) ? $bootstrap : __DIR__ . '/../vendor/autoload.php';
+Yii::setAlias('@hiqdev/yii2-daterangepicker', dirname(__DIR__) . '/src');
+Yii::setAlias('@hiqdev/yii2-daterangepicker/tests', __DIR__);
+
+$config = \yii\helpers\ArrayHelper::merge(require \hiqdev\composer\config\Builder::path('common'), [
+    'id' => 'testapp',
+    'basePath' => dirname(__DIR__),
+    'vendorPath' => dirname(__DIR__) . "/vendor",
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset'
+    ],
+    'components' => [
+        'request' => [
+            'cookieValidationKey' => 'wefJDF8sfdsfSDefwqdxj9oq',
+            'scriptFile' => __DIR__ .'/index.php',
+            'scriptUrl' => '/index.php',
+        ],
+        'assetManager' => [
+            'basePath' => '@hiqdev/yii2-daterangepicker/tests/_output',
+            'baseUrl' => '/',
+        ]
+    ]
+]);
+
+Yii::$app = new \yii\web\Application($config);
