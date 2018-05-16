@@ -11,7 +11,6 @@
 return [
     'components' => [
         'i18n' => [
-            'class' => \hipanel\components\I18N::class,
             'translations' => [
                 'hiqdev.daterangepicker' => [
                     'class' => \yii\i18n\PhpMessageSource::class,

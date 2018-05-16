@@ -10,6 +10,15 @@
 
 error_reporting(E_ALL);
 
-$bootstrap = __DIR__ . '/../src/_bootstrap.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 
-require_once file_exists($bootstrap) ? $bootstrap : __DIR__ . '/../vendor/autoload.php';
+Yii::setAlias('@hiqdev/yii2-daterangepicker', dirname(__DIR__) . '/src');
+Yii::setAlias('@hiqdev/yii2-daterangepicker/tests', __DIR__);
+
+$config = \yii\helpers\ArrayHelper::merge(
+    require \hiqdev\composer\config\Builder::path('common'),
+    require \hiqdev\composer\config\Builder::path('tests')
+);
+
+Yii::$app = new \yii\web\Application($config);

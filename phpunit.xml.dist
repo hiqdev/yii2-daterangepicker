@@ -2,7 +2,7 @@
 <phpunit backupGlobals="false" backupStaticAttributes="false" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false" stopOnFailure="false" syntaxCheck="false" bootstrap="tests/_bootstrap.php">
     <testsuites>
         <testsuite name="Unit Test Suite">
-            <directory>./tests/unit/</directory>
+            <directory>./tests/unit</directory>
         </testsuite>
     </testsuites>
     <filter>
