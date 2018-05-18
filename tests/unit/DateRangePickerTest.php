@@ -2,7 +2,6 @@
 
 namespace hiqdev\yii2\daterangepicker\tests\unit;
 
-use hipanel\modules\client\models\ClientSearch;
 use hiqdev\yii2\daterangepicker\DateRangePicker;
 use hiqdev\yii2\daterangepicker\tests\mock\SearchModel;
 
