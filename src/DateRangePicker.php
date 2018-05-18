@@ -99,12 +99,11 @@ class DateRangePicker extends InputWidget
 
     public function run()
     {
-        echo $this->renderInput() . "\n";
-
         $this->setupRanges();
         $this->localize();
-
         $this->registerClientScript();
+
+        return $this->renderInput() . "\n";
     }
 
     /**
