@@ -59,8 +59,8 @@
     },
     "extra": {
         "config-plugin": {
-            "common": "src/config/common.php",
-            "tests": "src/config/tests.php"
+            "common": "config/common.php",
+            "tests": "config/tests.php"
         }
     },
     "repositories": [
