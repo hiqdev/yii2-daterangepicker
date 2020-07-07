@@ -14,7 +14,7 @@ return [
             'scriptUrl' => '/index.php',
         ],
         'assetManager' => [
-            'basePath' => '@hiqdev/yii2-daterangepicker/tests/_output',
+            'basePath' => dirname(__DIR__) . '/tests/_output',
             'baseUrl' => '/',
         ],
     ],

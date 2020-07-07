@@ -14,7 +14,7 @@ return [
             'translations' => [
                 'hiqdev.daterangepicker' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
-                    'basePath' => '@hiqdev/yii2/daterangepicker/messages',
+                    'basePath' => dirname(__DIR__) . '/src/messages',
                     'sourceLanguage' => 'en-US',
                 ],
             ],
