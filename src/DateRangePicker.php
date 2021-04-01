@@ -119,7 +119,7 @@ class DateRangePicker extends InputWidget
     /**
      * @return string
      */
-    protected function renderInput()
+    protected function renderInput(): string
     {
         $options = $this->options;
 
@@ -132,20 +132,19 @@ class DateRangePicker extends InputWidget
             $value = $this->hasModel() ? Html::getAttributeValue($this->model, $this->attribute) : $this->value;
 
             return Html::tag($tag, $value, $options);
-        } else {
-            if ($this->hasModel() && $this->attribute2) {
-                $result = Html::textInput('date-picker', '', $options) . "\n";
-                $options['type'] = 'hidden';
-                $result .= Html::activeTextInput($this->model, $this->attribute, $options) . "\n";
-                $result .= Html::activeTextInput($this->model, $this->attribute2, $options);
-
-                return $result;
-            } elseif ($this->hasModel()) {
-                return Html::activeTextInput($this->model, $this->attribute, $options);
-            } else {
-                return Html::textInput($this->name, $this->value, $options);
-            }
         }
+        if ($this->attribute2 && $this->hasModel()) {
+            return implode('', [
+                Html::textInput('date-picker', '', $options),
+                Html::activeHiddenInput($this->model, $this->attribute),
+                Html::activeHiddenInput($this->model, $this->attribute2),
+            ]);
+        }
+        if ($this->hasModel()) {
+            return Html::activeTextInput($this->model, $this->attribute, $options);
+        }
+
+        return Html::textInput($this->name, $this->value, $options);
     }
 
     /**
