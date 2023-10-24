@@ -122,6 +122,7 @@ class DateRangePicker extends InputWidget
     protected function renderInput(): string
     {
         $options = $this->options;
+        $options['autocomplete'] = 'off';
 
         if (isset($options['tag'])) {
             if ($options['tag'] === false) {
