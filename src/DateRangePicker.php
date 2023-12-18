@@ -11,7 +11,6 @@
 namespace hiqdev\yii2\daterangepicker;
 
 use Yii;
-use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 use yii\helpers\FormatConverter;
 use yii\helpers\Html;
@@ -109,9 +108,8 @@ class DateRangePicker extends InputWidget
     /**
      * Registers the assets.
      * @void
-     * @throws InvalidConfigException
      */
-    protected function registerAssets()
+    protected function registerAssets(): void
     {
         DateRangePickerAsset::register($this->view);
     }
@@ -160,7 +158,7 @@ class DateRangePicker extends InputWidget
      * @return string
      * @author Kartik Visweswaran, Krajee.com, 2014
      */
-    protected static function convertDateFormat($format)
+    protected static function convertDateFormat($format): string
     {
         return strtr($format, [
             // meridian lowercase remains same
@@ -208,7 +206,7 @@ class DateRangePicker extends InputWidget
         ]);
     }
 
-    protected function setupRanges()
+    protected function setupRanges(): void
     {
         if ($this->defaultRanges && ArrayHelper::getValue($this->clientOptions, 'ranges') === null) {
             $this->clientOptions['ranges'] = [
@@ -225,18 +223,18 @@ class DateRangePicker extends InputWidget
     protected function localize()
     {
         if (strncmp($this->dateFormat, 'php:', 4) === 0) {
-            $format = $this->convertDateFormat(substr($this->dateFormat, 4));
+            $format = self::convertDateFormat(substr($this->dateFormat, 4));
         } elseif (strncmp($this->dateFormat, 'moment:', 7) === 0) {
             $format = Json::encode(substr($this->dateFormat, 7));
             $format = new JsExpression('moment.localeData().longDateFormat(' . $format . ')');
         } else {
-            $format = $this->convertDateFormat(FormatConverter::convertDateIcuToPhp($this->dateFormat, 'datetime', $this->language));
+            $format = self::convertDateFormat(FormatConverter::convertDateIcuToPhp($this->dateFormat, 'datetime', $this->language));
         }
 
         $this->clientOptions['locale'] = [
             'format' => $format,
             'applyLabel' => Yii::t('hiqdev.daterangepicker', 'Apply', [], $this->language),
-            'cancelLabel' => Yii::t('hiqdev.daterangepicker', 'Cancel', [], $this->language),
+            'cancelLabel' => Yii::t('hiqdev.daterangepicker', 'Clear', [], $this->language),
             'fromLabel' => Yii::t('hiqdev.daterangepicker', 'From', [], $this->language),
             'toLabel' => Yii::t('hiqdev.daterangepicker', 'To', [], $this->language),
             'weekLabel' => Yii::t('hiqdev.daterangepicker', 'W', [], $this->language),
@@ -246,20 +244,20 @@ class DateRangePicker extends InputWidget
 
     /**
      * Registers a specific jQuery UI widget options.
-     * @throws InvalidConfigException
      */
-    protected function registerClientScript()
+    protected function registerClientScript(): void
     {
         $this->registerAssets();
 
-        $id = isset($this->options['id']) ? $this->options['id'] : $this->getId();
+        $id = $this->options['id'] ?? $this->getId();
 
-        $options = ArrayHelper::merge([
+        $options = ArrayHelper::merge($this->clientOptions, [
             'timePicker' => $this->timePicker,
             'timePicker12Hour' => $this->timePicker12Hour,
             'separator' => $this->separator,
             'autoUpdateInput' => false,
-        ], $this->clientOptions);
+            'locale' => ['cancelLabel' => 'Clear'],
+        ]);
 
         $this->getView()->registerJs("$('#$id').daterangepicker(" . Json::encode($options) . ');');
 
@@ -275,7 +273,7 @@ class DateRangePicker extends InputWidget
                         var form = $(picker.element[0]).closest('form');
                         var start = picker.startDate.format('{$this->dateFormat}'.toUpperCase());
                         var end = picker.endDate.format('{$this->dateFormat}'.toUpperCase());
-                        
+
                         $('#$id').val(start + '{$this->separator}' + end);
                         form.find(\"input[name*='{$this->attribute}']\").val(start);
                         form.find(\"input[name*='{$this->attribute2}']\").val(end);
